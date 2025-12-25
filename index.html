@@ -316,21 +316,150 @@
             color: #6f42c1;
             margin: 0 10px;
         }
+        
+        /* Back to Top Button */
+        .back-to-top-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 52px;
+            height: 52px;
+            background: #6f42c1;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.6rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(111, 66, 193, 0.35);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        .back-to-top-btn.show {
+            display: flex;
+        }
+        
+        /* Search Box */
+        .search-container {
+            padding: 14px 20px;
+            background: #f6f8fa;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .search-box {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            display: block;
+            padding: 14px 22px;
+            border: 2px solid #e1e4e8;
+            border-radius: 30px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        
+        .search-box:focus {
+            border-color: #6f42c1;
+            box-shadow: 0 0 0 3px rgba(111, 66, 193, 0.1);
+        }
+        
+        /* iPad Optimizations */
+        @media (min-width: 768px) and (max-width: 1024px) {
+            body {
+                padding: 24px 28px;
+            }
+            .section {
+                padding: 28px;
+            }
+            h2 {
+                font-size: 24px;
+            }
+            h3 {
+                font-size: 20px;
+            }
+            table {
+                font-size: 15px;
+            }
+            th, td {
+                padding: 12px 14px;
+            }
+            .header-box {
+                padding: 36px;
+            }
+            .header-box h1 {
+                font-size: 36px;
+            }
+            .toc {
+                padding: 24px 28px;
+            }
+            .search-box {
+                font-size: 1.1rem;
+                padding: 16px 26px;
+            }
+            .back-to-top-btn {
+                width: 58px;
+                height: 58px;
+                font-size: 1.9rem;
+                bottom: 36px;
+                right: 36px;
+            }
+            .pearl-box, .emergency-box, .mnemonic-box, .highlight-box {
+                padding: 20px;
+            }
+        }
+        
+        /* iPad Pro */
+        @media (min-width: 1024px) and (max-width: 1366px) {
+            body {
+                max-width: 980px;
+                padding: 28px 36px;
+            }
+        }
+        
+        /* Touch-friendly enhancements */
+        @media (pointer: coarse) {
+            .toc a, button {
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+            }
+            a, button {
+                -webkit-tap-highlight-color: rgba(111, 66, 193, 0.15);
+            }
+        }
+        
+        /* Safe area for notched iPads */
+        @supports (padding: max(0px)) {
+            body {
+                padding-left: max(20px, env(safe-area-inset-left));
+                padding-right: max(20px, env(safe-area-inset-right));
+                padding-bottom: max(60px, env(safe-area-inset-bottom));
+            }
+        }
     </style>
 </head>
 <body>
 
 <div class="header-box">
-    <h1>🦴 Rheumatology Study Guide</h1>
-    <div class="subtitle">Internal Medicine Residency Preparation</div>
-    <div class="subtitle" style="margin-top: 15px; font-size: 14px;">Comprehensive review of autoimmune & inflammatory conditions</div>
+    <h1>🦴 ABIM Rheumatology & Orthopedics Study Guide</h1>
+    <div class="subtitle">High-Yield Board Review • ACR/EULAR Guidelines • Evidence-Based</div>
+    <div class="subtitle" style="margin-top: 15px; font-size: 14px; background: rgba(255,255,255,0.2); padding: 4px 12px; border-radius: 20px; display: inline-block;">BUILD #2 — EXPANDED ORTHOPEDICS</div>
+</div>
+
+<div class="search-container">
+    <input type="text" class="search-box" id="searchBox" placeholder="Search topics, conditions, medications..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
 </div>
 
 <div class="toc">
-    <h2>📚 Table of Contents</h2>
+    <h2>📚 Table of Contents — 55 Sections</h2>
     <div class="toc-grid">
         <div>
-            <strong>Inflammatory Arthritis</strong>
+            <strong>Inflammatory Arthritis (1-5)</strong>
             <a href="#ra">1. Rheumatoid Arthritis</a>
             <a href="#spondy">2. Spondyloarthropathies</a>
             <a href="#gout">3. Gout & Pseudogout</a>
@@ -338,7 +467,7 @@
             <a href="#oa">5. Osteoarthritis</a>
         </div>
         <div>
-            <strong>Connective Tissue Diseases</strong>
+            <strong>Connective Tissue Diseases (6-12)</strong>
             <a href="#sle">6. Systemic Lupus Erythematosus</a>
             <a href="#drug-lupus">7. Drug-Induced Lupus</a>
             <a href="#scleroderma">8. Systemic Sclerosis</a>
@@ -348,55 +477,78 @@
             <a href="#aps">12. Antiphospholipid Syndrome</a>
         </div>
         <div>
-            <strong>Vasculitis</strong>
+            <strong>Vasculitis (13-15)</strong>
             <a href="#pmr-gca">13. PMR & Giant Cell Arteritis</a>
             <a href="#vasculitis">14. ANCA & Other Vasculitis</a>
             <a href="#behcet">15. Behçet's Disease</a>
         </div>
         <div>
-            <strong>Systemic & Autoinflammatory</strong>
+            <strong>Systemic & Autoinflammatory (16-19)</strong>
             <a href="#still">16. Adult-Onset Still's Disease</a>
             <a href="#sarcoidosis">17. Sarcoidosis</a>
             <a href="#igg4">18. IgG4-Related Disease</a>
             <a href="#amyloidosis">19. Amyloidosis</a>
         </div>
         <div>
-            <strong>Metabolic Bone Disease</strong>
+            <strong>Bone & Soft Tissue (20-25)</strong>
             <a href="#osteoporosis">20. Osteoporosis</a>
             <a href="#paget">21. Paget's Disease</a>
             <a href="#avn">22. Osteonecrosis (AVN)</a>
-        </div>
-        <div>
-            <strong>Soft Tissue & Pain</strong>
             <a href="#fibromyalgia">23. Fibromyalgia</a>
             <a href="#soft-tissue">24. Bursitis, Tendinopathy, CTS</a>
             <a href="#back-pain">25. Back Pain & Red Flags</a>
-            <a href="#raynaud">26. Raynaud's Phenomenon</a>
         </div>
         <div>
-            <strong>Diagnostics</strong>
-            <a href="#serologies">27. Autoantibodies & Serologies</a>
-            <a href="#imaging">28. Rheumatologic Imaging</a>
-            <a href="#arthrocentesis">29. Arthrocentesis & Synovial Fluid</a>
+            <strong>Orthopedics - Regional (26-31)</strong>
+            <a href="#shoulder">26. Shoulder Disorders</a>
+            <a href="#hip">27. Hip Disorders</a>
+            <a href="#knee">28. Knee Disorders</a>
+            <a href="#foot-ankle">29. Foot & Ankle</a>
+            <a href="#cervical-spine">30. Cervical Spine</a>
+            <a href="#lumbar-spine">31. Lumbar Spine</a>
         </div>
         <div>
-            <strong>Treatment Principles</strong>
-            <a href="#nsaids">30. NSAIDs</a>
-            <a href="#steroids">31. Glucocorticoid Management</a>
-            <a href="#dmards">32. DMARDs & Biologics</a>
-            <a href="#vaccines">33. Vaccination in Immunosuppression</a>
-            <a href="#pregnancy">34. Pregnancy & Rheumatic Disease</a>
+            <strong>Orthopedics - Special Topics (32-41)</strong>
+            <a href="#fractures">32. Common Fractures</a>
+            <a href="#arthroplasty">33. Joint Replacement</a>
+            <a href="#compartment">34. Compartment Syndrome</a>
+            <a href="#sports">35. Sports Medicine</a>
+            <a href="#crps">36. Complex Regional Pain Syndrome</a>
+            <a href="#osteomyelitis">37. Osteomyelitis</a>
+            <a href="#metabolic-bone">38. Metabolic Bone Disease</a>
+            <a href="#bone-tumors">39. Bone Tumors & Metastases</a>
+            <a href="#periop-rheum">40. Perioperative Management</a>
+            <a href="#injections">41. Joint Injections</a>
         </div>
         <div>
-            <strong>Reference & Review</strong>
-            <a href="#emergencies">35. Rheumatologic Emergencies</a>
-            <a href="#trials">36. Landmark Trials</a>
-            <a href="#criteria">37. Classification Criteria</a>
-            <a href="#pearls">38. High-Yield Clinical Pearls</a>
-            <a href="#boards">39. Board-Style Questions</a>
+            <strong>Pain & Vascular (42)</strong>
+            <a href="#raynaud">42. Raynaud's Phenomenon</a>
+        </div>
+        <div>
+            <strong>Diagnostics (43-45)</strong>
+            <a href="#serologies">43. Autoantibodies & Serologies</a>
+            <a href="#imaging">44. Rheumatologic Imaging</a>
+            <a href="#arthrocentesis">45. Arthrocentesis & Synovial Fluid</a>
+        </div>
+        <div>
+            <strong>Treatment Principles (46-50)</strong>
+            <a href="#nsaids">46. NSAIDs</a>
+            <a href="#steroids">47. Glucocorticoid Management</a>
+            <a href="#dmards">48. DMARDs & Biologics</a>
+            <a href="#vaccines">49. Vaccination in Immunosuppression</a>
+            <a href="#pregnancy">50. Pregnancy & Rheumatic Disease</a>
+        </div>
+        <div>
+            <strong>Reference & Review (51-55)</strong>
+            <a href="#emergencies">51. Rheumatologic Emergencies</a>
+            <a href="#trials">52. Landmark Trials</a>
+            <a href="#criteria">53. Classification Criteria</a>
+            <a href="#pearls">54. High-Yield Clinical Pearls</a>
+            <a href="#boards">55. Board-Style Questions</a>
         </div>
     </div>
 </div>
+
 
 <!-- SECTION 1: RHEUMATOID ARTHRITIS -->
 <div class="section" id="ra">
@@ -2024,9 +2176,855 @@
     <a href="#" class="back-to-top">↑ Back to Table of Contents</a>
 </div>
 
+<!-- SECTION: SHOULDER DISORDERS -->
+<div class="section" id="shoulder">
+    <h2>26. Shoulder Disorders <span class="badge badge-common">Common</span></h2>
+    
+    <h3>Rotator Cuff Disorders</h3>
+    <table>
+        <tr><th>Condition</th><th>Features</th><th>Exam Findings</th><th>Management</th></tr>
+        <tr><td><strong>Impingement</strong></td><td>Pain with overhead activities, night pain</td><td>Painful arc 60-120°, Neer/Hawkins +</td><td>PT, NSAIDs, subacromial injection</td></tr>
+        <tr><td><strong>Tendinopathy</strong></td><td>Chronic overuse, gradual onset</td><td>Weakness with resisted motion</td><td>PT (eccentric exercises), rest</td></tr>
+        <tr><td><strong>Partial tear</strong></td><td>Pain worse at night, catching</td><td>Weakness, positive drop arm</td><td>PT first; surgery if fails</td></tr>
+        <tr><td><strong>Complete tear</strong></td><td>Acute injury or chronic progression</td><td>Marked weakness, atrophy</td><td>Surgery for young/active patients</td></tr>
+    </table>
+    
+    <h3>Rotator Cuff Testing</h3>
+    <ul>
+        <li><strong>Supraspinatus:</strong> Empty can test (resist abduction at 90° with thumbs down)</li>
+        <li><strong>Infraspinatus/Teres minor:</strong> External rotation against resistance</li>
+        <li><strong>Subscapularis:</strong> Lift-off test, belly-press test (internal rotation)</li>
+        <li><strong>Drop arm test:</strong> Patient can't slowly lower arm from abduction = large tear</li>
+    </ul>
+    
+    <h3>Adhesive Capsulitis (Frozen Shoulder)</h3>
+    <ul>
+        <li><strong>Risk factors:</strong> Diabetes (10-20% of diabetics), thyroid disease, prolonged immobilization</li>
+        <li><strong>Hallmark:</strong> Loss of both active AND passive ROM in all planes</li>
+        <li><strong>Phases:</strong> Freezing (painful) → Frozen (stiff) → Thawing (recovery)</li>
+        <li><strong>Treatment:</strong> PT (stretching), NSAIDs, intra-articular steroid, may take 12-24 months to resolve</li>
+    </ul>
+    
+    <div class="pearl-box">
+        In frozen shoulder, PASSIVE range of motion is limited (unlike rotator cuff pathology where passive ROM is preserved).
+    </div>
+    
+    <h3>Other Shoulder Conditions</h3>
+    <table>
+        <tr><th>Condition</th><th>Key Features</th><th>Diagnosis</th></tr>
+        <tr><td><strong>Biceps tendinopathy</strong></td><td>Anterior shoulder pain, worse with lifting</td><td>Speed test, Yergason test positive</td></tr>
+        <tr><td><strong>AC joint arthritis</strong></td><td>Pain at top of shoulder</td><td>Cross-body adduction test positive</td></tr>
+        <tr><td><strong>Labral tear (SLAP)</strong></td><td>Clicking, instability, throwing athletes</td><td>O'Brien test; confirm with MR arthrogram</td></tr>
+        <tr><td><strong>Shoulder instability</strong></td><td>History of dislocation, apprehension</td><td>Apprehension/relocation tests</td></tr>
+    </table>
+    
+    <a href="#" class="back-to-top">↑ Back to Table of Contents</a>
+</div>
+
+<!-- SECTION: HIP DISORDERS -->
+<div class="section" id="hip">
+    <h2>27. Hip Disorders <span class="badge badge-common">Common</span></h2>
+    
+    <h3>Hip Osteoarthritis</h3>
+    <ul>
+        <li><strong>Symptoms:</strong> Groin pain (NOT trochanteric pain), decreased ROM, stiffness</li>
+        <li><strong>Exam:</strong> Pain with internal rotation, limited flexion/abduction</li>
+        <li><strong>X-ray:</strong> Joint space narrowing, osteophytes, subchondral sclerosis</li>
+    </ul>
+    
+    <h3>Indications for Total Hip Arthroplasty</h3>
+    <div class="highlight-box">
+        <strong>Consider hip replacement when:</strong>
+        <ul>
+            <li>Significant pain affecting daily activities and sleep</li>
+            <li>Failure of conservative management (PT, NSAIDs, injections)</li>
+            <li>Radiographic evidence of moderate-severe arthritis</li>
+            <li>Functional limitation (difficulty walking, climbing stairs)</li>
+        </ul>
+    </div>
+    
+    <h3>Hip Fractures</h3>
+    <table>
+        <tr><th>Type</th><th>Location</th><th>Blood Supply Risk</th><th>Treatment</th></tr>
+        <tr><td><strong>Femoral neck</strong></td><td>Intracapsular</td><td>HIGH AVN risk</td><td>Displaced: arthroplasty; Non-displaced: pinning</td></tr>
+        <tr><td><strong>Intertrochanteric</strong></td><td>Extracapsular</td><td>Low AVN risk</td><td>ORIF (sliding hip screw or IM nail)</td></tr>
+        <tr><td><strong>Subtrochanteric</strong></td><td>Below lesser trochanter</td><td>Low AVN risk</td><td>IM nail</td></tr>
+    </table>
+    
+    <div class="emergency-box">
+        <strong>Hip fracture is a surgical emergency</strong> — Early surgery (within 24-48h) reduces mortality. Hold anticoagulation, optimize medically, consult ortho immediately.
+    </div>
+    
+    <h3>Other Hip Conditions</h3>
+    <table>
+        <tr><th>Condition</th><th>Key Features</th><th>Diagnosis/Management</th></tr>
+        <tr><td><strong>Trochanteric bursitis</strong></td><td>Lateral hip pain, worse lying on side</td><td>Tenderness at greater trochanter; PT, injection</td></tr>
+        <tr><td><strong>Hip labral tear</strong></td><td>Anterior groin pain, clicking, young active patients</td><td>FADIR test; MR arthrogram; PT vs arthroscopy</td></tr>
+        <tr><td><strong>Femoroacetabular impingement (FAI)</strong></td><td>Hip pain with flexion activities</td><td>Cam or pincer morphology on imaging; PT, surgery</td></tr>
+        <tr><td><strong>Piriformis syndrome</strong></td><td>Buttock pain radiating down leg</td><td>Tenderness over piriformis; PT, injection</td></tr>
+        <tr><td><strong>Meralgia paresthetica</strong></td><td>Lateral thigh numbness/burning</td><td>Lateral femoral cutaneous nerve compression; weight loss, loose clothing</td></tr>
+    </table>
+    
+    <div class="pearl-box">
+        Hip OA causes GROIN pain, not lateral hip pain. Lateral hip pain is usually trochanteric bursitis or IT band syndrome.
+    </div>
+    
+    <a href="#" class="back-to-top">↑ Back to Table of Contents</a>
+</div>
+
+<!-- SECTION: KNEE DISORDERS -->
+<div class="section" id="knee">
+    <h2>28. Knee Disorders <span class="badge badge-common">Common</span> <span class="badge badge-boards">High-Yield</span></h2>
+    
+    <h3>Knee Osteoarthritis</h3>
+    <ul>
+        <li><strong>Most common cause of knee pain in adults >50</strong></li>
+        <li><strong>Symptoms:</strong> Pain with activity, stiffness, swelling, crepitus</li>
+        <li><strong>Exam:</strong> Bony enlargement, crepitus, reduced ROM, varus/valgus deformity</li>
+        <li><strong>X-ray:</strong> Standing AP view essential — joint space narrowing, osteophytes, sclerosis</li>
+    </ul>
+    
+    <h3>Knee OA Management</h3>
+    <table>
+        <tr><th>Intervention</th><th>Evidence</th><th>Notes</th></tr>
+        <tr><td>Weight loss</td><td>Strong</td><td>5% weight loss = significant symptom improvement</td></tr>
+        <tr><td>Physical therapy</td><td>Strong</td><td>Quadriceps strengthening essential</td></tr>
+        <tr><td>NSAIDs (topical/oral)</td><td>Strong</td><td>Topical preferred for localized OA</td></tr>
+        <tr><td>Intra-articular steroids</td><td>Moderate</td><td>Short-term benefit; limit frequency</td></tr>
+        <tr><td>Hyaluronic acid</td><td>Weak</td><td>Not recommended by ACR guidelines</td></tr>
+        <tr><td>Glucosamine/chondroitin</td><td>Weak/none</td><td>Not recommended</td></tr>
+        <tr><td>Total knee arthroplasty</td><td>Strong</td><td>When conservative measures fail</td></tr>
+    </table>
+    
+    <h3>Meniscal Tears</h3>
+    <ul>
+        <li><strong>Mechanism:</strong> Twisting injury (young) or degenerative (older)</li>
+        <li><strong>Symptoms:</strong> Joint line pain, swelling, locking, catching</li>
+        <li><strong>Exam:</strong> Joint line tenderness, McMurray test, Thessaly test</li>
+        <li><strong>MRI:</strong> Diagnostic study of choice</li>
+        <li><strong>Treatment:</strong> PT for degenerative tears; arthroscopy for mechanical symptoms (locking)</li>
+    </ul>
+    
+    <div class="pearl-box">
+        Many meniscal tears on MRI are incidental, especially in older adults. Treat based on symptoms, not imaging alone.
+    </div>
+    
+    <h3>Ligament Injuries</h3>
+    <table>
+        <tr><th>Ligament</th><th>Mechanism</th><th>Exam Finding</th><th>Management</th></tr>
+        <tr><td><strong>ACL</strong></td><td>Pivot/deceleration, "pop"</td><td>Lachman test (most sensitive), anterior drawer, pivot shift</td><td>Reconstruction if active/young</td></tr>
+        <tr><td><strong>PCL</strong></td><td>Dashboard injury</td><td>Posterior drawer, posterior sag sign</td><td>Usually conservative (brace, PT)</td></tr>
+        <tr><td><strong>MCL</strong></td><td>Valgus stress</td><td>Valgus stress test at 30° flexion</td><td>Usually conservative (brace, PT)</td></tr>
+        <tr><td><strong>LCL</strong></td><td>Varus stress</td><td>Varus stress test at 30° flexion</td><td>Surgery if complete tear</td></tr>
+    </table>
+    
+    <h3>Other Knee Conditions</h3>
+    <table>
+        <tr><th>Condition</th><th>Features</th><th>Management</th></tr>
+        <tr><td><strong>Patellofemoral syndrome</strong></td><td>Anterior knee pain, worse stairs/sitting, young women</td><td>Quad strengthening, patellar taping</td></tr>
+        <tr><td><strong>Patellar tendinopathy</strong></td><td>"Jumper's knee," inferior pole tenderness</td><td>Eccentric exercises, rest</td></tr>
+        <tr><td><strong>Baker's cyst</strong></td><td>Popliteal swelling, often with knee OA/RA</td><td>Treat underlying cause; may rupture (calf pain mimicking DVT)</td></tr>
+        <tr><td><strong>Prepatellar bursitis</strong></td><td>"Housemaid's knee," anterior swelling</td><td>Aspiration (rule out septic), compression, NSAIDs</td></tr>
+        <tr><td><strong>Pes anserine bursitis</strong></td><td>Medial knee pain below joint line</td><td>Common in OA, obesity; injection, PT</td></tr>
+    </table>
+    
+    <div class="mnemonic-box">
+        <strong>Baker's cyst rupture mimics DVT</strong> — Always consider ultrasound to differentiate. "Crescent sign" = fluid tracking into calf.
+    </div>
+    
+    <a href="#" class="back-to-top">↑ Back to Table of Contents</a>
+</div>
+
+<!-- SECTION: FOOT AND ANKLE -->
+<div class="section" id="foot-ankle">
+    <h2>29. Foot & Ankle Disorders</h2>
+    
+    <h3>Plantar Fasciitis</h3>
+    <ul>
+        <li><strong>Most common cause of heel pain</strong></li>
+        <li><strong>Classic:</strong> First-step pain in the morning, improves with walking</li>
+        <li><strong>Exam:</strong> Tenderness at medial calcaneal tubercle</li>
+        <li><strong>Treatment:</strong> Stretching (calf, plantar fascia), orthotics, night splints, NSAIDs</li>
+        <li><strong>Imaging:</strong> Usually not needed; heel spur is incidental finding</li>
+    </ul>
+    
+    <h3>Achilles Tendon Disorders</h3>
+    <table>
+        <tr><th>Condition</th><th>Features</th><th>Management</th></tr>
+        <tr><td><strong>Tendinopathy</strong></td><td>Gradual onset, posterior heel pain, thickening</td><td>Eccentric exercises, heel lift, avoid flats</td></tr>
+        <tr><td><strong>Rupture</strong></td><td>Sudden "pop," can't plantarflex</td><td>Thompson test positive (no plantarflexion with calf squeeze); surgery vs casting</td></tr>
+    </table>
+    
+    <div class="emergency-box">
+        <strong>Fluoroquinolones increase Achilles rupture risk</strong> — especially in elderly, on steroids, or with renal failure. Discontinue if tendon pain develops.
+    </div>
+    
+    <h3>Other Foot/Ankle Conditions</h3>
+    <table>
+        <tr><th>Condition</th><th>Key Features</th><th>Management</th></tr>
+        <tr><td><strong>Morton's neuroma</strong></td><td>Interdigital pain (3rd-4th web space), burning, numbness</td><td>Wide shoes, metatarsal pad, injection, surgery</td></tr>
+        <tr><td><strong>Tarsal tunnel syndrome</strong></td><td>Medial ankle/plantar foot burning, numbness</td><td>Tibial nerve compression; orthotics, injection, surgery</td></tr>
+        <tr><td><strong>Ankle sprain (lateral)</strong></td><td>Inversion injury, ATFL most common</td><td>RICE, bracing, PT; Ottawa rules for X-ray</td></tr>
+        <tr><td><strong>Posterior tibial tendon dysfunction</strong></td><td>Adult acquired flatfoot, medial ankle pain</td><td>Orthotics, bracing, surgery if severe</td></tr>
+        <tr><td><strong>Metatarsalgia</strong></td><td>Forefoot pain under metatarsal heads</td><td>Metatarsal pads, proper footwear</td></tr>
+    </table>
+    
+    <h3>Ottawa Ankle Rules</h3>
+    <div class="highlight-box">
+        <strong>X-ray needed if:</strong>
+        <ul>
+            <li>Bone tenderness at posterior edge of distal 6 cm of fibula or tibia</li>
+            <li>Bone tenderness at tip of lateral or medial malleolus</li>
+            <li>Inability to bear weight (4 steps) immediately and in ED</li>
+        </ul>
+        <strong>For midfoot:</strong> Bone tenderness at navicular or 5th metatarsal base, or inability to bear weight
+    </div>
+    
+    <a href="#" class="back-to-top">↑ Back to Table of Contents</a>
+</div>
+
+<!-- SECTION: CERVICAL SPINE -->
+<div class="section" id="cervical-spine">
+    <h2>30. Cervical Spine Disorders</h2>
+    
+    <h3>Cervical Radiculopathy</h3>
+    <table>
+        <tr><th>Root</th><th>Disc Level</th><th>Motor</th><th>Sensory</th><th>Reflex</th></tr>
+        <tr><td>C5</td><td>C4-C5</td><td>Deltoid, biceps</td><td>Lateral arm</td><td>Biceps</td></tr>
+        <tr><td>C6</td><td>C5-C6</td><td>Wrist extension, biceps</td><td>Lateral forearm, thumb, index</td><td>Brachioradialis</td></tr>
+        <tr><td>C7</td><td>C6-C7</td><td>Triceps, wrist flexion</td><td>Middle finger</td><td>Triceps</td></tr>
+        <tr><td>C8</td><td>C7-T1</td><td>Hand intrinsics, finger flexion</td><td>Ring, small finger, medial forearm</td><td>None</td></tr>
+    </table>
+    
+    <div class="pearl-box">
+        <strong>Spurling test:</strong> Extension + rotation + axial load reproduces radicular symptoms. Highly specific for cervical radiculopathy.
+    </div>
+    
+    <h3>Cervical Myelopathy</h3>
+    <ul>
+        <li><strong>Cause:</strong> Spinal cord compression (stenosis, disc, spondylosis)</li>
+        <li><strong>Symptoms:</strong> Gait dysfunction, hand clumsiness, urgency/incontinence</li>
+        <li><strong>Exam:</strong> Hyperreflexia, Hoffman sign, Babinski, broad-based gait</li>
+        <li><strong>MRI:</strong> Required for diagnosis — cord signal changes indicate severity</li>
+        <li><strong>Treatment:</strong> Surgical decompression (progressive condition)</li>
+    </ul>
+    
+    <div class="emergency-box">
+        <strong>Cervical myelopathy is a surgical condition</strong> — Progressive weakness, gait dysfunction, or bladder symptoms warrant urgent neurosurgery/spine referral.
+    </div>
+    
+    <h3>Cervical Strain ("Whiplash")</h3>
+    <ul>
+        <li><strong>Mechanism:</strong> Rapid acceleration-deceleration (MVA)</li>
+        <li><strong>Symptoms:</strong> Neck pain, stiffness, headache, usually delayed onset</li>
+        <li><strong>Red flags:</strong> Neurologic deficits, severe midline tenderness, high-risk mechanism</li>
+        <li><strong>Canadian C-spine rules:</strong> Determine need for imaging</li>
+        <li><strong>Treatment:</strong> Early mobilization, PT; avoid prolonged collar use</li>
+    </ul>
+    
+    <a href="#" class="back-to-top">↑ Back to Table of Contents</a>
+</div>
+
+<!-- SECTION: LUMBAR SPINE EXPANDED -->
+<div class="section" id="lumbar-spine">
+    <h2>31. Lumbar Spine Disorders <span class="badge badge-common">Very Common</span></h2>
+    
+    <h3>Lumbar Radiculopathy</h3>
+    <table>
+        <tr><th>Root</th><th>Disc Level</th><th>Motor</th><th>Sensory</th><th>Reflex</th></tr>
+        <tr><td>L4</td><td>L3-L4</td><td>Knee extension (quads)</td><td>Medial leg</td><td>Patellar</td></tr>
+        <tr><td>L5</td><td>L4-L5</td><td>Great toe dorsiflexion, foot dorsiflexion</td><td>Lateral leg, dorsum of foot</td><td>None</td></tr>
+        <tr><td>S1</td><td>L5-S1</td><td>Plantarflexion, foot eversion</td><td>Lateral foot, sole</td><td>Achilles</td></tr>
+    </table>
+    
+    <div class="mnemonic-box">
+        <strong>L4 = Quad, L5 = Great toe up (dorsiflexion), S1 = Standing on toes (plantarflexion)</strong>
+    </div>
+    
+    <h3>Lumbar Spinal Stenosis</h3>
+    <ul>
+        <li><strong>Demographics:</strong> Older adults (degenerative)</li>
+        <li><strong>Classic symptom:</strong> Neurogenic claudication — leg pain/weakness with walking, relieved by sitting/bending forward</li>
+        <li><strong>Distinguish from vascular claudication:</strong> Stenosis = better leaning forward (shopping cart sign), vascular = no positional relief</li>
+        <li><strong>MRI:</strong> Central canal narrowing</li>
+        <li><strong>Treatment:</strong> PT, epidural injections, surgical decompression if conservative fails</li>
+    </ul>
+    
+    <h3>Disc Herniation</h3>
+    <ul>
+        <li><strong>Most common levels:</strong> L4-L5, L5-S1</li>
+        <li><strong>Symptoms:</strong> Radicular pain (worse than back pain), positive straight leg raise</li>
+        <li><strong>Straight leg raise:</strong> Positive if reproduces leg pain at 30-70° elevation</li>
+        <li><strong>Most improve with conservative treatment</strong> (90% in 6 weeks)</li>
+        <li><strong>Surgery indications:</strong> Cauda equina, progressive weakness, intractable pain >6 weeks</li>
+    </ul>
+    
+    <div class="emergency-box">
+        <strong>CAUDA EQUINA SYNDROME — Surgical Emergency!</strong>
+        <ul>
+            <li>Saddle anesthesia</li>
+            <li>Urinary retention or incontinence</li>
+            <li>Fecal incontinence</li>
+            <li>Bilateral leg weakness</li>
+        </ul>
+        <strong>→ Emergency MRI and surgical decompression within 24-48 hours</strong>
+    </div>
+    
+    <a href="#" class="back-to-top">↑ Back to Table of Contents</a>
+</div>
+
+<!-- SECTION: COMMON FRACTURES -->
+<div class="section" id="fractures">
+    <h2>32. Common Fractures <span class="badge badge-boards">High-Yield</span></h2>
+    
+    <h3>Upper Extremity Fractures</h3>
+    <table>
+        <tr><th>Fracture</th><th>Mechanism</th><th>Key Points</th></tr>
+        <tr><td><strong>Clavicle</strong></td><td>Fall on outstretched hand/shoulder</td><td>Middle third most common; sling treatment usually</td></tr>
+        <tr><td><strong>Proximal humerus</strong></td><td>Fall, especially elderly/osteoporotic</td><td>Neer classification; most treated conservatively</td></tr>
+        <tr><td><strong>Supracondylar (pediatric)</strong></td><td>Fall on outstretched hand</td><td>Watch for brachial artery injury, compartment syndrome</td></tr>
+        <tr><td><strong>Distal radius (Colles)</strong></td><td>Fall on outstretched hand</td><td>"Dinner fork" deformity; splint/cast vs ORIF</td></tr>
+        <tr><td><strong>Scaphoid</strong></td><td>Fall on outstretched hand</td><td>Snuffbox tenderness; X-ray may be negative initially → MRI or repeat films</td></tr>
+        <tr><td><strong>Boxer's fracture</strong></td><td>Punch with closed fist</td><td>5th metacarpal neck; closed reduction usually adequate</td></tr>
+    </table>
+    
+    <div class="pearl-box">
+        <strong>Scaphoid fractures have high AVN risk</strong> due to retrograde blood supply. If suspected and X-ray negative, immobilize and repeat imaging in 10-14 days or get MRI.
+    </div>
+    
+    <h3>Lower Extremity Fractures</h3>
+    <table>
+        <tr><th>Fracture</th><th>Key Points</th></tr>
+        <tr><td><strong>Hip fractures</strong></td><td>See hip section — surgical emergency in elderly</td></tr>
+        <tr><td><strong>Tibial plateau</strong></td><td>High-energy injury; evaluate for compartment syndrome</td></tr>
+        <tr><td><strong>Tibial shaft</strong></td><td>High compartment syndrome risk</td></tr>
+        <tr><td><strong>Ankle (Weber classification)</strong></td><td>A (below syndesmosis) = stable; B (at syndesmosis) = variable; C (above) = unstable</td></tr>
+        <tr><td><strong>5th metatarsal base</strong></td><td>Jones fracture (metaphyseal-diaphyseal) vs avulsion (tuberosity) — Jones has higher nonunion</td></tr>
+        <tr><td><strong>Stress fractures</strong></td><td>Overuse; tibia, metatarsals common; rest, gradual return</td></tr>
+    </table>
+    
+    <h3>Vertebral Compression Fractures</h3>
+    <ul>
+        <li><strong>Common in osteoporosis</strong> — may be spontaneous or minimal trauma</li>
+        <li><strong>Symptoms:</strong> Acute back pain, height loss, kyphosis</li>
+        <li><strong>Imaging:</strong> X-ray; MRI if uncertain age or neurologic symptoms</li>
+        <li><strong>Treatment:</strong> Pain control, bracing, PT; vertebroplasty/kyphoplasty rarely needed</li>
+        <li><strong>Always evaluate and treat underlying osteoporosis</strong></li>
+    </ul>
+    
+    <div class="highlight-box">
+        <strong>Fragility fracture = indication for osteoporosis treatment</strong> regardless of T-score
+    </div>
+    
+    <a href="#" class="back-to-top">↑ Back to Table of Contents</a>
+</div>
+
+<!-- SECTION: JOINT REPLACEMENT -->
+<div class="section" id="arthroplasty">
+    <h2>33. Joint Replacement <span class="badge badge-boards">Boards Favorite</span></h2>
+    
+    <h3>Indications for Total Joint Arthroplasty</h3>
+    <ul>
+        <li><strong>Significant pain affecting quality of life and function</strong></li>
+        <li><strong>Failure of conservative treatment</strong> (PT, weight loss, NSAIDs, injections)</li>
+        <li><strong>Radiographic evidence</strong> of moderate-severe arthritis</li>
+        <li><strong>Patient goals and expectations are realistic</strong></li>
+    </ul>
+    
+    <h3>Preoperative Considerations</h3>
+    <table>
+        <tr><th>Factor</th><th>Recommendation</th></tr>
+        <tr><td>Diabetes</td><td>Optimize HbA1c &lt;8% (ideally &lt;7%); higher infection risk if uncontrolled</td></tr>
+        <tr><td>Obesity</td><td>BMI &gt;40 associated with higher complications; consider weight loss</td></tr>
+        <tr><td>Smoking</td><td>Cessation 4-6 weeks before surgery reduces wound complications</td></tr>
+        <tr><td>Dental work</td><td>Complete before surgery; no prophylactic antibiotics for routine dental after TJA (2014 guidelines)</td></tr>
+        <tr><td>Active infection</td><td>Must be cleared before elective surgery</td></tr>
+        <tr><td>Medications</td><td>Hold DMARDs/biologics perioperatively per surgeon protocol</td></tr>
+    </table>
+    
+    <h3>Complications</h3>
+    <table>
+        <tr><th>Complication</th><th>Timing</th><th>Key Points</th></tr>
+        <tr><td><strong>VTE</strong></td><td>Weeks</td><td>Prophylaxis required (LMWH, rivaroxaban, aspirin based on risk)</td></tr>
+        <tr><td><strong>Periprosthetic infection</strong></td><td>Weeks-years</td><td>Early: irrigation/debridement; Late: often requires revision</td></tr>
+        <tr><td><strong>Dislocation (hip)</strong></td><td>Early or late</td><td>Hip precautions post-op; may need revision if recurrent</td></tr>
+        <tr><td><strong>Periprosthetic fracture</strong></td><td>Any time</td><td>Osteoporosis risk factor; usually requires surgery</td></tr>
+        <tr><td><strong>Aseptic loosening</strong></td><td>Years</td><td>Most common cause of late revision</td></tr>
+        <tr><td><strong>Stiffness (knee)</strong></td><td>Months</td><td>May require manipulation under anesthesia</td></tr>
+    </table>
+    
+    <div class="pearl-box">
+        <strong>Periprosthetic joint infection:</strong> Suspect if persistent pain, warmth, or drainage. Check ESR/CRP (both elevated has high sensitivity), aspirate joint for cell count and culture.
+    </div>
+    
+    <h3>Longevity</h3>
+    <ul>
+        <li><strong>Modern implants:</strong> 90-95% survival at 15-20 years</li>
+        <li><strong>Revision more common in:</strong> Young patients (higher activity), obese, males</li>
+    </ul>
+    
+    <a href="#" class="back-to-top">↑ Back to Table of Contents</a>
+</div>
+
+<!-- SECTION: COMPARTMENT SYNDROME -->
+<div class="section" id="compartment">
+    <h2>34. Compartment Syndrome <span class="badge badge-emergency">Emergency</span></h2>
+    
+    <h3>Pathophysiology</h3>
+    <ul>
+        <li>Increased pressure within a closed fascial compartment</li>
+        <li>Compromises perfusion → tissue ischemia → irreversible damage within 6-8 hours</li>
+    </ul>
+    
+    <h3>Risk Factors</h3>
+    <ul>
+        <li><strong>Fractures:</strong> Tibial shaft (most common), forearm</li>
+        <li><strong>Crush injuries</strong></li>
+        <li><strong>Burns</strong></li>
+        <li><strong>Tight casts/dressings</strong></li>
+        <li><strong>Reperfusion after vascular injury</strong></li>
+        <li><strong>Anticoagulation with bleeding into compartment</strong></li>
+    </ul>
+    
+    <h3>Clinical Features — The 6 P's</h3>
+    <div class="emergency-box">
+        <ul>
+            <li><strong>Pain out of proportion</strong> (especially with passive stretch) — EARLIEST sign</li>
+            <li><strong>Pressure</strong> (tense compartment)</li>
+            <li><strong>Paresthesias</strong></li>
+            <li><strong>Paralysis</strong></li>
+            <li><strong>Pallor</strong></li>
+            <li><strong>Pulselessness</strong> — LATE finding; don't wait for this!</li>
+        </ul>
+    </div>
+    
+    <div class="pearl-box">
+        <strong>Pain with passive stretch</strong> is the most sensitive early finding. A palpable pulse does NOT rule out compartment syndrome.
+    </div>
+    
+    <h3>Diagnosis</h3>
+    <ul>
+        <li><strong>Clinical diagnosis</strong> — don't delay for testing if high suspicion</li>
+        <li><strong>Compartment pressure measurement:</strong> Absolute >30 mmHg or ΔP (diastolic - compartment) &lt;30 mmHg</li>
+    </ul>
+    
+    <h3>Treatment</h3>
+    <ul>
+        <li><strong>Remove all restrictive dressings/casts</strong></li>
+        <li><strong>Keep limb at heart level</strong> (elevation may worsen perfusion)</li>
+        <li><strong>Emergent fasciotomy</strong> — definitive treatment</li>
+        <li><strong>Delayed treatment leads to:</strong> Volkmann's ischemic contracture (forearm), rhabdomyolysis, AKI, permanent disability</li>
+    </ul>
+    
+    <a href="#" class="back-to-top">↑ Back to Table of Contents</a>
+</div>
+
+<!-- SECTION: SPORTS MEDICINE -->
+<div class="section" id="sports">
+    <h2>35. Sports Medicine Essentials <span class="badge badge-common">Common</span></h2>
+    
+    <h3>Muscle Strains</h3>
+    <table>
+        <tr><th>Grade</th><th>Pathology</th><th>Symptoms</th><th>Recovery</th></tr>
+        <tr><td>I (Mild)</td><td>Microscopic tears, &lt;5% fibers</td><td>Mild pain, minimal swelling, full ROM</td><td>1-2 weeks</td></tr>
+        <tr><td>II (Moderate)</td><td>Partial tear, significant fiber damage</td><td>Moderate pain, swelling, reduced strength</td><td>3-6 weeks</td></tr>
+        <tr><td>III (Severe)</td><td>Complete rupture</td><td>Severe pain, palpable defect, loss of function</td><td>3+ months, may need surgery</td></tr>
+    </table>
+    
+    <h3>Common Sports Injuries by Location</h3>
+    <table>
+        <tr><th>Location</th><th>Injury</th><th>Key Features</th></tr>
+        <tr><td><strong>Shoulder</strong></td><td>SLAP tear</td><td>Overhead athletes, clicking, instability</td></tr>
+        <tr><td></td><td>Little League shoulder</td><td>Proximal humeral epiphysitis in young throwers</td></tr>
+        <tr><td><strong>Elbow</strong></td><td>UCL injury</td><td>Throwing athletes; "Tommy John" surgery</td></tr>
+        <tr><td></td><td>Little League elbow</td><td>Medial epicondyle apophysitis</td></tr>
+        <tr><td><strong>Hip</strong></td><td>Sports hernia (athletic pubalgia)</td><td>Groin pain in athletes, often needs surgery</td></tr>
+        <tr><td><strong>Knee</strong></td><td>ACL tear</td><td>Non-contact pivot injury, "pop"</td></tr>
+        <tr><td></td><td>Osgood-Schlatter</td><td>Adolescent, tibial tubercle pain</td></tr>
+        <tr><td><strong>Leg</strong></td><td>Shin splints (MTSS)</td><td>Medial tibial stress; rest, orthotics</td></tr>
+        <tr><td></td><td>Stress fracture</td><td>Overuse; point tenderness, worse with activity</td></tr>
+        <tr><td><strong>Ankle</strong></td><td>High ankle sprain</td><td>Syndesmosis injury; longer recovery than lateral</td></tr>
+    </table>
+    
+    <h3>Concussion</h3>
+    <ul>
+        <li><strong>Definition:</strong> Traumatic brain injury from direct/indirect force</li>
+        <li><strong>Symptoms:</strong> Headache, confusion, amnesia, dizziness, nausea, light sensitivity</li>
+        <li><strong>Red flags for imaging (CT):</strong> LOC >30 sec, GCS &lt;15, focal deficits, seizure, repeated vomiting, worsening symptoms</li>
+        <li><strong>Return to play:</strong> Stepwise protocol only after symptom-free; same-day return NEVER allowed</li>
+    </ul>
+    
+    <div class="emergency-box">
+        <strong>Second Impact Syndrome:</strong> Catastrophic brain swelling if second concussion occurs before first has healed. High mortality. Emphasize complete recovery before return to play.
+    </div>
+    
+    <h3>Exercise-Induced Conditions</h3>
+    <table>
+        <tr><th>Condition</th><th>Features</th><th>Management</th></tr>
+        <tr><td><strong>Exertional rhabdomyolysis</strong></td><td>Muscle pain, weakness, dark urine post-exercise</td><td>IV fluids, monitor CK and renal function</td></tr>
+        <tr><td><strong>Exercise-associated hyponatremia</strong></td><td>Endurance athletes, overhydration</td><td>Fluid restriction; hypertonic saline if severe</td></tr>
+        <tr><td><strong>Heat exhaustion</strong></td><td>Fatigue, headache, nausea, temp &lt;40°C</td><td>Rest, cooling, oral/IV fluids</td></tr>
+        <tr><td><strong>Heat stroke</strong></td><td>AMS, temp >40°C, anhidrosis late</td><td>Emergency cooling, ICU admission</td></tr>
+    </table>
+    
+    <a href="#" class="back-to-top">↑ Back to Table of Contents</a>
+</div>
+
+<!-- SECTION: CRPS -->
+<div class="section" id="crps">
+    <h2>36. Complex Regional Pain Syndrome (CRPS) <span class="badge badge-boards">Boards Favorite</span></h2>
+    
+    <h3>Overview</h3>
+    <ul>
+        <li><strong>Definition:</strong> Chronic pain condition, usually affecting a limb, disproportionate to inciting event</li>
+        <li><strong>Previously called:</strong> Reflex sympathetic dystrophy (RSD), causalgia</li>
+        <li><strong>Trigger:</strong> Often follows fracture, surgery, or minor trauma</li>
+    </ul>
+    
+    <h3>Types</h3>
+    <table>
+        <tr><th>Type</th><th>Nerve Injury</th><th>Features</th></tr>
+        <tr><td><strong>CRPS Type I</strong></td><td>No identifiable nerve lesion</td><td>More common (~90%)</td></tr>
+        <tr><td><strong>CRPS Type II</strong></td><td>Documented nerve injury</td><td>Previously called causalgia</td></tr>
+    </table>
+    
+    <h3>Budapest Criteria (Diagnostic)</h3>
+    <div class="highlight-box">
+        <strong>Must have all 4:</strong>
+        <ol>
+            <li>Continuing pain disproportionate to inciting event</li>
+            <li>≥1 symptom in 3 of 4 categories: sensory, vasomotor, sudomotor/edema, motor/trophic</li>
+            <li>≥1 sign in 2 of 4 categories at time of evaluation</li>
+            <li>No other diagnosis better explains signs and symptoms</li>
+        </ol>
+    </div>
+    
+    <h3>Clinical Features</h3>
+    <table>
+        <tr><th>Category</th><th>Symptoms</th><th>Signs</th></tr>
+        <tr><td><strong>Sensory</strong></td><td>Hyperesthesia, allodynia</td><td>Hyperalgesia to pinprick, allodynia to light touch</td></tr>
+        <tr><td><strong>Vasomotor</strong></td><td>Temperature asymmetry, color changes</td><td>Skin color/temp asymmetry</td></tr>
+        <tr><td><strong>Sudomotor/Edema</strong></td><td>Sweating changes, swelling</td><td>Edema, sweating asymmetry</td></tr>
+        <tr><td><strong>Motor/Trophic</strong></td><td>Weakness, tremor, dystonia</td><td>Decreased ROM, trophic changes (hair, nails, skin)</td></tr>
+    </table>
+    
+    <h3>Treatment</h3>
+    <ul>
+        <li><strong>Physical/occupational therapy:</strong> ESSENTIAL — graded motor imagery, desensitization</li>
+        <li><strong>Medications:</strong> Gabapentin/pregabalin, TCAs, bisphosphonates (early), topical lidocaine</li>
+        <li><strong>Interventional:</strong> Sympathetic nerve blocks, spinal cord stimulation</li>
+        <li><strong>Psychology:</strong> CBT, biofeedback</li>
+    </ul>
+    
+    <div class="pearl-box">
+        Early aggressive physical therapy is the cornerstone of treatment. Immobilization worsens CRPS.
+    </div>
+    
+    <a href="#" class="back-to-top">↑ Back to Table of Contents</a>
+</div>
+
+<!-- SECTION: OSTEOMYELITIS -->
+<div class="section" id="osteomyelitis">
+    <h2>37. Osteomyelitis <span class="badge badge-boards">High-Yield</span></h2>
+    
+    <h3>Classification</h3>
+    <table>
+        <tr><th>Type</th><th>Mechanism</th><th>Common Pathogens</th><th>Typical Locations</th></tr>
+        <tr><td><strong>Hematogenous</strong></td><td>Bacteremia seeds bone</td><td>S. aureus (most common)</td><td>Vertebrae (adults), long bones (children)</td></tr>
+        <tr><td><strong>Contiguous</strong></td><td>Spread from adjacent infection or surgery</td><td>Polymicrobial, S. aureus</td><td>Post-surgical, trauma</td></tr>
+        <tr><td><strong>Vascular insufficiency</strong></td><td>Diabetic foot, PVD</td><td>Polymicrobial including anaerobes</td><td>Feet</td></tr>
+    </table>
+    
+    <h3>Special Populations</h3>
+    <table>
+        <tr><th>Population</th><th>Consider</th></tr>
+        <tr><td>Sickle cell disease</td><td>Salmonella (but S. aureus still most common)</td></tr>
+        <tr><td>IVDU</td><td>S. aureus, Pseudomonas, Candida; vertebral, sacroiliac</td></tr>
+        <tr><td>Diabetic foot</td><td>Polymicrobial: S. aureus, strep, Enterococcus, GNRs, anaerobes</td></tr>
+        <tr><td>Post-operative</td><td>S. aureus, coagulase-negative staph, GNRs</td></tr>
+    </table>
+    
+    <h3>Diagnosis</h3>
+    <ul>
+        <li><strong>Labs:</strong> Elevated ESR (most sensitive), CRP, WBC</li>
+        <li><strong>Blood cultures:</strong> Positive in ~50% of hematogenous cases</li>
+        <li><strong>Imaging:</strong>
+            <ul>
+                <li><strong>X-ray:</strong> May be negative for 10-14 days; look for periosteal elevation, lytic lesions</li>
+                <li><strong>MRI:</strong> Gold standard — bone marrow edema, soft tissue involvement</li>
+                <li><strong>Tagged WBC scan:</strong> If MRI contraindicated</li>
+            </ul>
+        </li>
+        <li><strong>Bone biopsy/culture:</strong> GOLD STANDARD for pathogen identification; obtain before antibiotics if possible</li>
+    </ul>
+    
+    <div class="pearl-box">
+        In diabetic foot osteomyelitis: "Probe to bone" test — if you can probe to bone through an ulcer, osteomyelitis is highly likely.
+    </div>
+    
+    <h3>Vertebral Osteomyelitis</h3>
+    <ul>
+        <li><strong>Risk factors:</strong> IVDU, endocarditis, spinal procedures, immunocompromise</li>
+        <li><strong>Symptoms:</strong> Back pain (often severe), fever, neurologic deficits if epidural abscess</li>
+        <li><strong>Most common pathogen:</strong> S. aureus</li>
+        <li><strong>Imaging:</strong> MRI with contrast (evaluate for epidural abscess)</li>
+        <li><strong>Get blood cultures × 2</strong> — often positive and can guide therapy</li>
+        <li><strong>TEE:</strong> Rule out endocarditis in S. aureus bacteremia</li>
+    </ul>
+    
+    <div class="emergency-box">
+        <strong>Epidural abscess is a surgical emergency!</strong> — Back pain + fever + neurologic deficits → Emergent MRI → Neurosurgical decompression if present.
+    </div>
+    
+    <h3>Treatment</h3>
+    <ul>
+        <li><strong>Duration:</strong> 6 weeks IV antibiotics (vertebral, prosthetic); 4-6 weeks for other sites</li>
+        <li><strong>Empiric therapy:</strong> Vancomycin + anti-pseudomonal if needed (diabetic foot, IVDU)</li>
+        <li><strong>Oral step-down:</strong> OVIVA trial supports oral therapy with high bioavailability agents</li>
+        <li><strong>Surgical debridement:</strong> Often needed for chronic osteomyelitis, hardware infections, sequestrum</li>
+    </ul>
+    
+    <a href="#" class="back-to-top">↑ Back to Table of Contents</a>
+</div>
+
+<!-- SECTION: METABOLIC BONE DISEASE -->
+<div class="section" id="metabolic-bone">
+    <h2>38. Metabolic Bone Disease <span class="badge badge-boards">High-Yield</span></h2>
+    
+    <h3>Osteomalacia</h3>
+    <ul>
+        <li><strong>Definition:</strong> Defective bone mineralization in adults (rickets in children)</li>
+        <li><strong>Causes:</strong> Vitamin D deficiency (most common), phosphate depletion, renal tubular acidosis</li>
+        <li><strong>Symptoms:</strong> Diffuse bone pain, muscle weakness, fractures</li>
+        <li><strong>Labs:</strong> Low or normal calcium, LOW phosphorus, HIGH alk phos, HIGH PTH</li>
+        <li><strong>X-ray:</strong> Looser zones (pseudofractures), generalized osteopenia</li>
+        <li><strong>Treatment:</strong> Vitamin D and calcium supplementation; treat underlying cause</li>
+    </ul>
+    
+    <div class="pearl-box">
+        Osteoporosis = normal mineralization, decreased bone mass. Osteomalacia = defective mineralization.
+    </div>
+    
+    <h3>Hyperparathyroidism Bone Effects</h3>
+    <table>
+        <tr><th>Type</th><th>Calcium</th><th>PTH</th><th>Phosphorus</th><th>Bone Effects</th></tr>
+        <tr><td><strong>Primary HPT</strong></td><td>HIGH</td><td>HIGH (inappropriately)</td><td>Low-normal</td><td>Osteitis fibrosa cystica, brown tumors, subperiosteal resorption</td></tr>
+        <tr><td><strong>Secondary HPT</strong></td><td>Low-normal</td><td>HIGH (appropriate)</td><td>Usually high</td><td>Renal osteodystrophy, rugger jersey spine</td></tr>
+    </table>
+    
+    <h3>Primary Hyperparathyroidism — Bone Manifestations</h3>
+    <ul>
+        <li><strong>Osteitis fibrosa cystica:</strong> Cystic bone lesions, "salt and pepper" skull</li>
+        <li><strong>Brown tumors:</strong> Lytic lesions from osteoclast activity</li>
+        <li><strong>Subperiosteal bone resorption:</strong> Best seen on hand X-ray (radial aspect of middle phalanges)</li>
+        <li><strong>Increased fracture risk</strong></li>
+    </ul>
+    
+    <h3>Surgical Indications for Primary HPT</h3>
+    <div class="highlight-box">
+        <strong>2022 Guidelines — Surgery if ANY of:</strong>
+        <ul>
+            <li>Calcium >1 mg/dL above normal</li>
+            <li>Creatinine clearance &lt;60 mL/min</li>
+            <li>T-score ≤-2.5 at any site OR vertebral fracture</li>
+            <li>Age &lt;50</li>
+            <li>Kidney stones or nephrocalcinosis</li>
+        </ul>
+    </div>
+    
+    <h3>Renal Osteodystrophy</h3>
+    <ul>
+        <li><strong>Definition:</strong> Bone disease in CKD from disordered mineral metabolism</li>
+        <li><strong>Pathophysiology:</strong> ↓ 1,25-vitamin D → ↓ calcium → ↑ PTH → bone resorption</li>
+        <li><strong>Types:</strong>
+            <ul>
+                <li><strong>High-turnover:</strong> Secondary HPT (osteitis fibrosa)</li>
+                <li><strong>Low-turnover:</strong> Adynamic bone disease, osteomalacia</li>
+                <li><strong>Mixed</strong></li>
+            </ul>
+        </li>
+        <li><strong>Treatment:</strong> Phosphate binders, vitamin D analogs, calcimimetics (cinacalcet)</li>
+    </ul>
+    
+    <h3>Tumor-Induced Osteomalacia</h3>
+    <ul>
+        <li><strong>Mechanism:</strong> Tumor secretes FGF23 → phosphate wasting</li>
+        <li><strong>Labs:</strong> LOW phosphorus, LOW 1,25-vitamin D, elevated FGF23</li>
+        <li><strong>Tumor types:</strong> Mesenchymal tumors, often small and difficult to locate</li>
+        <li><strong>Localization:</strong> Octreotide scan, FDG-PET, whole-body MRI</li>
+        <li><strong>Treatment:</strong> Tumor resection curative; phosphate and calcitriol if not resectable</li>
+    </ul>
+    
+    <a href="#" class="back-to-top">↑ Back to Table of Contents</a>
+</div>
+
+<!-- SECTION: BONE TUMORS -->
+<div class="section" id="bone-tumors">
+    <h2>39. Bone Tumors & Metastases</h2>
+    
+    <h3>Benign Bone Tumors</h3>
+    <table>
+        <tr><th>Tumor</th><th>Age</th><th>Location</th><th>Imaging</th></tr>
+        <tr><td><strong>Osteochondroma</strong></td><td>10-30</td><td>Metaphysis of long bones</td><td>Cartilage-capped bony projection</td></tr>
+        <tr><td><strong>Enchondroma</strong></td><td>20-50</td><td>Hands, feet</td><td>Central lucent lesion with calcifications</td></tr>
+        <tr><td><strong>Osteoid osteoma</strong></td><td>10-30</td><td>Femur, tibia (cortex)</td><td>&lt;2 cm nidus; night pain relieved by NSAIDs</td></tr>
+        <tr><td><strong>Giant cell tumor</strong></td><td>20-40</td><td>Epiphysis (around knee)</td><td>"Soap bubble" lytic lesion to articular surface</td></tr>
+        <tr><td><strong>Fibrous dysplasia</strong></td><td>Any</td><td>Any bone</td><td>"Ground glass" appearance</td></tr>
+    </table>
+    
+    <h3>Primary Malignant Bone Tumors</h3>
+    <table>
+        <tr><th>Tumor</th><th>Age</th><th>Location</th><th>Key Features</th></tr>
+        <tr><td><strong>Osteosarcoma</strong></td><td>10-20 (bimodal with elderly)</td><td>Around knee (distal femur, proximal tibia)</td><td>"Sunburst" pattern, Codman triangle, elevated alk phos</td></tr>
+        <tr><td><strong>Ewing sarcoma</strong></td><td>&lt;20</td><td>Diaphysis of long bones, pelvis</td><td>"Onion skin" periosteal reaction; t(11;22)</td></tr>
+        <tr><td><strong>Chondrosarcoma</strong></td><td>40-70</td><td>Pelvis, proximal femur</td><td>Cartilaginous matrix; low-grade often painless</td></tr>
+        <tr><td><strong>Multiple myeloma</strong></td><td>>60</td><td>Spine, pelvis, skull, ribs</td><td>"Punched out" lytic lesions; no blastic lesions</td></tr>
+    </table>
+    
+    <div class="mnemonic-box">
+        <strong>Osteosarcoma locations:</strong> "Around the KNEE" — distal femur, proximal tibia most common
+    </div>
+    
+    <h3>Metastatic Bone Disease</h3>
+    <ul>
+        <li><strong>Most common malignancy in bone</strong> (far exceeds primary bone tumors in adults)</li>
+        <li><strong>Common primaries:</strong> Breast, prostate, lung, kidney, thyroid ("BLT with Kosher Pickle")</li>
+    </ul>
+    
+    <h4>Lytic vs Blastic Metastases</h4>
+    <table>
+        <tr><th>Pattern</th><th>Primary Tumors</th></tr>
+        <tr><td><strong>Lytic</strong></td><td>Lung, renal, thyroid, melanoma, multiple myeloma</td></tr>
+        <tr><td><strong>Blastic</strong></td><td>Prostate, breast (can be either), carcinoid, small cell lung</td></tr>
+        <tr><td><strong>Mixed</strong></td><td>Breast, GI, lung</td></tr>
+    </table>
+    
+    <div class="pearl-box">
+        <strong>"Lead Kettle"</strong> — Lytic metastases: Lung, Kidney, Thyroid, meLanoma. Prostate is classically Blastic.
+    </div>
+    
+    <h3>Pathologic Fractures</h3>
+    <ul>
+        <li><strong>Definition:</strong> Fracture through abnormal bone (tumor, Paget's, osteoporosis)</li>
+        <li><strong>Risk assessment:</strong> Mirel's scoring system for impending fracture</li>
+        <li><strong>Prophylactic fixation:</strong> Consider if >50% cortical destruction or high Mirel's score</li>
+        <li><strong>Treatment:</strong> Surgical stabilization, radiation, bisphosphonates, denosumab</li>
+    </ul>
+    
+    <h3>Bone-Targeted Therapy</h3>
+    <ul>
+        <li><strong>Bisphosphonates (zoledronic acid):</strong> Reduce skeletal events in metastatic disease</li>
+        <li><strong>Denosumab:</strong> RANK-L inhibitor; alternative to bisphosphonates</li>
+        <li><strong>Risks:</strong> ONJ (dental exam before starting), hypocalcemia, atypical fractures</li>
+    </ul>
+    
+    <a href="#" class="back-to-top">↑ Back to Table of Contents</a>
+</div>
+
+<!-- SECTION: PERIOPERATIVE MANAGEMENT -->
+<div class="section" id="periop-rheum">
+    <h2>40. Perioperative Management of Rheumatic Diseases <span class="badge badge-boards">High-Yield</span></h2>
+    
+    <h3>DMARDs and Biologics Perioperative Management</h3>
+    <table>
+        <tr><th>Medication</th><th>Half-Life</th><th>Recommendation</th></tr>
+        <tr><td><strong>Methotrexate</strong></td><td>Short</td><td>CONTINUE through surgery (ACR/AAHKS 2017)</td></tr>
+        <tr><td><strong>Hydroxychloroquine</strong></td><td>Long</td><td>CONTINUE through surgery</td></tr>
+        <tr><td><strong>Sulfasalazine</strong></td><td>Short</td><td>CONTINUE through surgery</td></tr>
+        <tr><td><strong>Leflunomide</strong></td><td>Very long</td><td>Continue OR washout if high infection risk</td></tr>
+        <tr><td><strong>TNF inhibitors</strong></td><td>Variable</td><td>Hold 1 dosing interval before surgery</td></tr>
+        <tr><td><strong>Rituximab</strong></td><td>Very long</td><td>Schedule surgery at end of dosing cycle</td></tr>
+        <tr><td><strong>Tofacitinib</strong></td><td>Short</td><td>Hold ≥7 days before surgery</td></tr>
+        <tr><td><strong>Abatacept</strong></td><td>Moderate</td><td>Hold 1 dosing interval before surgery</td></tr>
+        <tr><td><strong>IL-6 inhibitors</strong></td><td>Moderate</td><td>Hold 1 dosing interval; mask infection signs</td></tr>
+    </table>
+    
+    <div class="highlight-box">
+        <strong>2017 ACR/AAHKS Guidelines Key Points:</strong>
+        <ul>
+            <li>Continue MTX, HCQ, SSZ, LEF through TJA</li>
+            <li>Hold biologics for 1 dosing interval before surgery</li>
+            <li>Resume all medications when wound shows adequate healing (~14 days)</li>
+        </ul>
+    </div>
+    
+    <h3>Corticosteroid Management</h3>
+    <ul>
+        <li><strong>Continue home prednisone dose</strong> perioperatively</li>
+        <li><strong>Stress-dose steroids:</strong> NOT routinely recommended for patients on chronic low-dose steroids</li>
+        <li><strong>Consider stress dosing if:</strong> Hypotension unresponsive to fluids, clinical adrenal insufficiency</li>
+    </ul>
+    
+    <h3>Disease-Specific Considerations</h3>
+    <table>
+        <tr><th>Condition</th><th>Key Perioperative Issues</th></tr>
+        <tr><td><strong>RA</strong></td><td>C-spine instability (flexion-extension views before intubation), cardiac disease</td></tr>
+        <tr><td><strong>SLE</strong></td><td>APS (anticoagulation bridging), renal function, infection risk</td></tr>
+        <tr><td><strong>Scleroderma</strong></td><td>Difficult intubation (limited mouth opening), aspiration risk, Raynaud's</td></tr>
+        <tr><td><strong>AS</strong></td><td>Difficult intubation (fixed spine), cardiac conduction abnormalities</td></tr>
+        <tr><td><strong>Gout</strong></td><td>Continue ULT; flares common postop; prophylaxis with colchicine</td></tr>
+    </table>
+    
+    <div class="emergency-box">
+        <strong>C-spine precautions in RA:</strong> Atlantoaxial instability risk. Get flexion-extension cervical spine X-rays before elective intubation. Consider fiberoptic intubation.
+    </div>
+    
+    <a href="#" class="back-to-top">↑ Back to Table of Contents</a>
+</div>
+
+<!-- SECTION: INJECTION THERAPY -->
+<div class="section" id="injections">
+    <h2>41. Joint & Soft Tissue Injections</h2>
+    
+    <h3>Corticosteroid Injection Indications</h3>
+    <ul>
+        <li><strong>Inflammatory arthritis flare</strong> (RA, gout, pseudogout)</li>
+        <li><strong>Osteoarthritis</strong> (temporary symptom relief)</li>
+        <li><strong>Bursitis</strong> (trochanteric, subacromial, olecranon)</li>
+        <li><strong>Tendinopathy</strong> (use cautiously; may weaken tendon)</li>
+        <li><strong>Trigger finger</strong></li>
+        <li><strong>Carpal tunnel syndrome</strong></li>
+    </ul>
+    
+    <h3>Commonly Used Corticosteroids</h3>
+    <table>
+        <tr><th>Agent</th><th>Relative Potency</th><th>Duration</th><th>Use</th></tr>
+        <tr><td>Dexamethasone</td><td>25</td><td>Short</td><td>Soft tissue</td></tr>
+        <tr><td>Triamcinolone</td><td>5</td><td>Intermediate</td><td>Joints, soft tissue</td></tr>
+        <tr><td>Methylprednisolone</td><td>5</td><td>Intermediate</td><td>Joints, soft tissue</td></tr>
+    </table>
+    
+    <h3>Contraindications</h3>
+    <ul>
+        <li><strong>Absolute:</strong> Septic joint (must rule out first), bacteremia, overlying cellulitis</li>
+        <li><strong>Relative:</strong> Coagulopathy, prosthetic joint (increased infection risk), uncontrolled diabetes</li>
+    </ul>
+    
+    <h3>Adverse Effects</h3>
+    <ul>
+        <li><strong>Local:</strong> Post-injection flare (24-48h), skin atrophy, depigmentation, fat atrophy</li>
+        <li><strong>Systemic:</strong> Transient hyperglycemia, facial flushing</li>
+        <li><strong>With repeated injections:</strong> Cartilage damage, accelerated OA</li>
+    </ul>
+    
+    <div class="pearl-box">
+        <strong>Limit frequency:</strong> No more than 3-4 injections per joint per year. Allow 6-12 weeks between injections.
+    </div>
+    
+    <h3>Other Injectables</h3>
+    <table>
+        <tr><th>Agent</th><th>Indication</th><th>Notes</th></tr>
+        <tr><td><strong>Hyaluronic acid</strong></td><td>Knee OA</td><td>Controversial efficacy; not recommended by ACR 2019</td></tr>
+        <tr><td><strong>PRP</strong></td><td>OA, tendinopathy</td><td>Limited evidence; not covered by most insurance</td></tr>
+        <tr><td><strong>Stem cells</strong></td><td>Various</td><td>Experimental; no proven efficacy</td></tr>
+    </table>
+    
+    <a href="#" class="back-to-top">↑ Back to Table of Contents</a>
+</div>
+
 <!-- SECTION: RAYNAUD'S -->
 <div class="section" id="raynaud">
-    <h2>26. Raynaud's Phenomenon</h2>
+    <h2>42. Raynaud's Phenomenon</h2>
     
     <h3>Definition</h3>
     <p>Episodic vasospasm causing digital color changes with cold/stress</p>
@@ -2067,7 +3065,7 @@
 
 <!-- SECTION: NSAIDs -->
 <div class="section" id="serologies">
-    <h2>27. Autoantibodies & Serologies</h2>
+    <h2>43. Autoantibodies & Serologies</h2>
     
     <h3>Quick Reference Table</h3>
     <table>
@@ -2104,7 +3102,7 @@
 
 <!-- SECTION 13: IMAGING -->
 <div class="section" id="imaging">
-    <h2>28. Rheumatologic Imaging</h2>
+    <h2>44. Rheumatologic Imaging</h2>
     
     <h3>X-ray Findings by Disease</h3>
     <table>
@@ -2139,7 +3137,7 @@
 
 <!-- SECTION 14: ARTHROCENTESIS -->
 <div class="section" id="arthrocentesis">
-    <h2>29. Arthrocentesis & Synovial Fluid Analysis</h2>
+    <h2>45. Arthrocentesis & Synovial Fluid Analysis</h2>
     
     <h3>Synovial Fluid Classification</h3>
     <table>
@@ -2178,7 +3176,7 @@
 
 <!-- SECTION 15: DMARDs -->
 <div class="section" id="nsaids">
-    <h2>30. NSAIDs</h2>
+    <h2>46. NSAIDs</h2>
     
     <h3>Mechanism</h3>
     <ul>
@@ -2217,7 +3215,7 @@
 
 <!-- SECTION: VACCINATION -->
 <div class="section" id="steroids">
-    <h2>31. Glucocorticoid Management</h2>
+    <h2>47. Glucocorticoid Management</h2>
     
     <h3>Equivalent Doses</h3>
     <table>
@@ -2271,7 +3269,7 @@
 
 <!-- SECTION 17: LANDMARK TRIALS -->
 <div class="section" id="dmards">
-    <h2>32. DMARDs & Biologics</h2>
+    <h2>48. DMARDs & Biologics</h2>
     
     <h3>Conventional Synthetic DMARDs (csDMARDs)</h3>
     <table>
@@ -2321,7 +3319,7 @@
 
 <!-- SECTION 16: STEROIDS -->
 <div class="section" id="vaccines">
-    <h2>33. Vaccination in Immunosuppression <span class="badge badge-boards">High-Yield</span></h2>
+    <h2>49. Vaccination in Immunosuppression <span class="badge badge-boards">High-Yield</span></h2>
     
     <h3>General Principles</h3>
     <ul>
@@ -2369,7 +3367,7 @@
 
 <!-- SECTION: PREGNANCY -->
 <div class="section" id="pregnancy">
-    <h2>34. Pregnancy & Rheumatic Disease <span class="badge badge-boards">High-Yield</span></h2>
+    <h2>50. Pregnancy & Rheumatic Disease <span class="badge badge-boards">High-Yield</span></h2>
     
     <h3>Medication Safety</h3>
     <table>
@@ -2412,7 +3410,7 @@
 
 <!-- SECTION: BOARD QUESTIONS -->
 <div class="section" id="emergencies">
-    <h2>35. Rheumatologic Emergencies <span class="badge badge-emergency">Critical</span></h2>
+    <h2>51. Rheumatologic Emergencies <span class="badge badge-emergency">Critical</span></h2>
     
     <h3>Must-Know Emergencies</h3>
     
@@ -2481,7 +3479,7 @@
 
 <!-- SECTION 12: SEROLOGIES -->
 <div class="section" id="trials">
-    <h2>36. Landmark Trials</h2>
+    <h2>52. Landmark Trials</h2>
     
     <h3>Rheumatoid Arthritis</h3>
     <table>
@@ -2525,7 +3523,7 @@
 
 <!-- SECTION 18: CLASSIFICATION CRITERIA -->
 <div class="section" id="criteria">
-    <h2>37. Classification Criteria Quick Reference</h2>
+    <h2>53. Classification Criteria Quick Reference</h2>
     
     <h3>Key Points About Classification vs Diagnosis</h3>
     <ul>
@@ -2551,7 +3549,7 @@
 
 <!-- SECTION 19: CLINICAL PEARLS -->
 <div class="section" id="pearls">
-    <h2>38. High-Yield Clinical Pearls</h2>
+    <h2>54. High-Yield Clinical Pearls</h2>
     
     <h3>Diagnostic Pearls</h3>
     <ul>
@@ -2590,7 +3588,7 @@
 
 <!-- SECTION: OSTEOARTHRITIS -->
 <div class="section" id="boards">
-    <h2>39. Board-Style Practice Questions</h2>
+    <h2>55. Board-Style Practice Questions</h2>
     
     <h4>Question 1</h4>
     <p>A 55-year-old woman presents with 3 months of bilateral shoulder and hip pain with morning stiffness lasting 2 hours. ESR is 85 mm/h. She reports new headaches for 1 week. What is the next best step?</p>
@@ -2655,13 +3653,46 @@
     <a href="#" class="back-to-top">↑ Back to Table of Contents</a>
 </div>
 
+<!-- Back to Top Button -->
+<button class="back-to-top-btn" id="backToTop" onclick="scrollToTop()">↑</button>
+
 <!-- FOOTER -->
-<div style="background: #f6f8fa; padding: 20px; border-radius: 8px; margin-top: 40px; text-align: center;">
-    <p style="margin: 0; color: #586069; font-size: 14px;"><strong>Rheumatology Study Guide</strong></p>
-    <p style="margin: 5px 0 0; color: #586069; font-size: 12px;">Internal Medicine Residency Preparation</p>
-    <p style="margin: 10px 0 0; color: #6f42c1; font-size: 12px; font-weight: 600;">Version 2.0 | December 2025 | 39 Topics</p>
-    <p style="margin: 10px 0 0; color: #999; font-size: 11px;">For educational purposes only. Always use clinical judgment and consult current guidelines.</p>
-</div>
+<footer style="background: linear-gradient(135deg, #6f42c1 0%, #8b5cf6 100%); color: white; padding: 30px 20px; margin-top: 40px; text-align: center; border-radius: 12px;">
+    <h3 style="margin: 0 0 10px; font-size: 1.2rem;">🦴 ABIM Rheumatology & Orthopedics Study Guide</h3>
+    <p style="opacity: 0.9; font-size: 0.9rem; margin: 0;">Evidence-based content from ACR/EULAR/AAOS Guidelines</p>
+    <p style="opacity: 0.7; font-size: 0.8rem; margin-top: 10px;">BUILD #2 — EXPANDED ORTHOPEDICS | 55+ Topics | December 2025</p>
+    <p style="opacity: 0.6; font-size: 0.75rem; margin-top: 10px;">For educational purposes only. Always use clinical judgment and consult current guidelines.</p>
+    <div style="margin-top: 20px;">
+        <a href="index.html" style="color: white; text-decoration: none; background: rgba(255,255,255,0.2); padding: 10px 20px; border-radius: 22px; margin: 5px; display: inline-block; font-size: 0.9rem;">📚 Clinical Suite</a>
+        <a href="im_guide.html" style="color: white; text-decoration: none; background: rgba(255,255,255,0.2); padding: 10px 20px; border-radius: 22px; margin: 5px; display: inline-block; font-size: 0.9rem;">🩺 IM Guide</a>
+        <a href="id_study_guide.html" style="color: white; text-decoration: none; background: rgba(255,255,255,0.2); padding: 10px 20px; border-radius: 22px; margin: 5px; display: inline-block; font-size: 0.9rem;">🦠 ID Study Guide</a>
+        <a href="cardio_study_guide.html" style="color: white; text-decoration: none; background: rgba(255,255,255,0.2); padding: 10px 20px; border-radius: 22px; margin: 5px; display: inline-block; font-size: 0.9rem;">❤️ Cardio Study Guide</a>
+        <a href="gi_study_guide.html" style="color: white; text-decoration: none; background: rgba(255,255,255,0.2); padding: 10px 20px; border-radius: 22px; margin: 5px; display: inline-block; font-size: 0.9rem;">🫁 GI Study Guide</a>
+    </div>
+</footer>
+
+<script>
+    // Search functionality
+    const searchBox = document.getElementById('searchBox');
+    searchBox.addEventListener('input', function() {
+        const query = this.value.toLowerCase();
+        const sections = document.querySelectorAll('.section');
+        sections.forEach(section => {
+            const text = section.textContent.toLowerCase();
+            section.style.display = (query === '' || text.includes(query)) ? 'block' : 'none';
+        });
+    });
+    
+    // Back to top button
+    const backToTopBtn = document.getElementById('backToTop');
+    window.addEventListener('scroll', function() {
+        backToTopBtn.classList.toggle('show', window.pageYOffset > 400);
+    });
+    
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+</script>
 
 </body>
 </html>
